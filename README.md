@@ -1,76 +1,165 @@
-# Project Title: Assistive System for Blind People (Money Counting and Obstacle Detection)
+# Assistive System for Blind People
+
+### Money Counting and Obstacle Detection using Computer Vision
+
+---
 
 ## Overview
-The **Assistive System for Blind People** is designed to address two critical challenges faced by visually impaired individuals: **money counting** and **obstacle detection**. The system combines computer vision and machine learning techniques to provide real-time assistance to blind users.
+
+The **Assistive System for Blind People** is an AI-based solution designed to improve the independence and safety of visually impaired individuals. The system addresses two key real-world challenges: **obstacle detection** and **currency recognition**, using computer vision and deep learning techniques.
+
+---
+
+## Problem Statement
+
+Visually impaired individuals often face:
+
+* Difficulty in detecting nearby obstacles while navigating
+* Challenges in identifying and managing currency
+
+This system aims to provide real-time assistance to overcome these limitations.
+
+---
 
 ## Features
-1. **Obstacle Detection:**
-   - Utilizes **YOLOv9** (You Only Look Once) for real-time object detection.
-   - **MIDAS** (Monocular Depth Estimation in Real-time) estimates the depth of detected objects.
-   - Warns the user if an object is too close, helping them avoid collisions.
 
-2. **Currency Reader:**
-   - Custom **ResNet50** model trained to recognize **Indian currency notes**.
-   - Predicts the denomination of currency notes held by the user.
-   - Provides an audio output of the detected currency value.
+### 1. Obstacle Detection
 
-3. **Money Counter:**
-   - Given a target amount (e.g., "I need 150 rupees"), the system identifies the positions of currency notes.
-   - Guides the user to take out the specific notes needed to meet the target amount.
+* Real-time object detection using **YOLOv9**
+* Depth estimation using **MiDaS**
+* Identifies nearby obstacles and alerts the user
+* Designed for real-time environmental awareness
+
+---
+
+### 2. Currency Recognition
+
+* Custom-trained **ResNet50 model**
+* Recognizes Indian currency denominations
+* Provides audio feedback of detected currency value
+
+---
+
+### 3. Money Counter
+
+* Accepts a target amount (e.g., ₹150)
+* Detects available notes
+* Assists in selecting the correct combination of currency
+
+---
+
+## Technology Stack
+
+**Languages:**
+
+* Python
+
+**Frameworks & Tools:**
+
+* Streamlit
+
+**Libraries:**
+
+* OpenCV
+* NumPy
+* PyTorch
+
+**Models Used:**
+
+* YOLOv9 (Object Detection)
+* MiDaS (Depth Estimation)
+* ResNet50 (Image Classification)
+
+---
+
+## Project Structure
+
+```
+assistive-system-for-blind-people/
+│
+├── obstacle_detection.py
+├── currency_reader.py
+├── money_counter.py
+├── models/
+├── utils/
+├── data/
+├── requirements.txt
+└── README.md
+```
+
+---
 
 ## Installation
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/assistive-system-for-blind.git
-   cd assistive-system-for-blind
-   ```
-2. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+
+### Clone the repository
+
+```bash
+git clone https://github.com/atharva481/assistive-system-for-blind-people.git
+cd assistive-system-for-blind-people
+```
+
+### Create virtual environment
+
+```bash
+python -m venv .venv
+source .venv/Scripts/activate   # Windows
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
 ## Usage
-1. Run the obstacle detection module:
-   ```bash
-    streamlit run obstacle_detection.py
-   ```
-2. Run the currency reader module:
-   ```bash
-   streamlit currency_reader.py
-   ```
 
-## Future Enhancements
-- **Implement Voice Alerts:** Enhance the obstacle detection module by incorporating voice alerts. For instance, when an object is detected ahead, the system can audibly announce, "Object detected! Please change your path."
-- **Explore Additional Currency Recognition Models:** Investigate other pre-trained models or custom architectures to improve the accuracy of currency recognition. Consider ensemble methods or fine-tuning on a larger dataset for better performance.
-- **Video-Based Obstacle Detection:** Extend the obstacle detection capabilities from static images to real-time video streams. Utilize video frames to identify obstacles and provide timely warnings to the user.
-- **Dynamic Currency Prediction:** Currently, currency recognition is based on static images. Enhance the system to predict currency denominations from live video feeds, allowing blind users to identify money in real time.
+### Run Obstacle Detection
 
-## Results and Visuals
+```bash
+streamlit run obstacle_detection.py
+```
 
+### Run Currency Recognition
 
-### Obstacle Detection
-#### Image Provided
-![gettyimages-928538518-640x640](https://github.com/Mochoye/assistive-system-for-blind/assets/95351969/6e1a7fa5-2443-458b-a8a0-674f5c471330)
-#### HeatMap for Depth Estimation (Midas)
-![heatmap](https://github.com/Mochoye/assistive-system-for-blind/assets/95351969/6cfcc9cc-44dd-4ba2-b783-4832a9dd9bd2)
-#### Object Detection(Yolov9)
-![BoundingBox](https://github.com/Mochoye/assistive-system-for-blind/assets/95351969/533061d6-3bb2-4383-b8a9-41321a8d556e)
-#### Obstacle Detection
-![Screenshot](https://github.com/Mochoye/assistive-system-for-blind/assets/95351969/9d212527-c879-43c1-8cf3-1ad924af55da)
+```bash
+streamlit run currency_reader.py
+```
 
+---
 
-## Conclusion
+## Results
 
-This Assistive System for Blind People represents a significant step toward improving the quality of life for visually impaired individuals. By combining obstacle detection, currency recognition, and money counting, we aim to empower blind users with greater independence and confidence.
+The system successfully:
 
-Feel free to contribute to this open-source project and make a positive impact in the lives of those who need it most! 🌟
+* Detects objects in real-time using YOLOv9
+* Estimates depth for obstacle awareness using MiDaS
+* Identifies Indian currency denominations using a trained ResNet50 model
 
+---
+
+## Future Work
+
+* Real-time voice navigation alerts
+* Video-based continuous detection
+* Mobile application deployment
+* Improved model accuracy with larger datasets
+
+---
+
+## Contribution
+
+Contributions are welcome. Please fork the repository and submit a pull request for any improvements.
+
+---
 
 ## License
-This project is licensed under the **MIT License**. You are free to use, modify, and distribute the code as long as you comply with the terms specified in the LICENSE file.
 
-##
+This project is licensed under the MIT License.
 
+---
 
+## Author
 
-
-
+Atharva Sawant
